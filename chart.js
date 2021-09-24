@@ -50,15 +50,13 @@ let option = {
         default:
           break;
       }
-
-      return `<span>${str}:${e.data[e.seriesName]}</span>
-      <p></p>
-      <div style='text-align:left'>攻击：${(
-        e.data.xiangling.atk + e.data.xiangling.atkg
-      ).toFixed(1)}
-      <br>精通：${e.data.xiangling.em.toFixed(1)}
-      <br>暴率：${e.data.xiangling.cr.toFixed(1)}
-      <br>暴伤：${e.data.xiangling.cd.toFixed(1)}
+      return `<span style='font-size:14px'>${str}:${e.data[e.seriesName]}</span>
+      <div style='text-align:left; font-size:12px; line-height: 100%'>
+      攻击：${(e.data.xiangling.atk + e.data.xiangling.atkg).toFixed(1)}
+      <br>精通：${e.data.xiangling.em}
+      <br>暴率：${e.data.xiangling.cr.toFixed(1)}%
+      <br>暴伤：${e.data.xiangling.cd.toFixed(1)}%
+      <br>元素加伤：${e.data.xiangling.ed.toFixed(1)}%
       </div>`;
     },
   },
