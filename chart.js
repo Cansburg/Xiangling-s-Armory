@@ -53,12 +53,13 @@ let option = {
 
       return `<span>${str}:${e.data[e.seriesName]}</span>
       <p></p>
-      <div style='text-align:left'>攻击力：${(
+      <div style='text-align:left'>攻击：${(
         e.data.xiangling.atk + e.data.xiangling.atkg
       ).toFixed(1)}
-      <br>暴率：${e.data.xiangling.cr.toFixed(
-        1
-      )}<br>暴伤：${e.data.xiangling.cd.toFixed(1)}</div>`;
+      <br>精通：${e.data.xiangling.em.toFixed(1)}
+      <br>暴率：${e.data.xiangling.cr.toFixed(1)}
+      <br>暴伤：${e.data.xiangling.cd.toFixed(1)}
+      </div>`;
     },
   },
 
