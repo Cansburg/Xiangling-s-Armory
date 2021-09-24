@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="google" value="notranslate">
+    <title>Document</title>
+</head>
+<script src="./lib/echarts.js"></script>
+<style>
+    body {
+        text-align: center
+    }
+
+    .title .note {
+        font-size: 13px;
+    }
+
+    .chartNote {
+        color: gray;
+        font-size: 12px;
+    }
+
+    hr {
+        height: 1px;
+        border: none;
+        border-top: 1px dashed red;
+        border-bottom: 1px dashed;
+    }
+
+    h1,
+    h2,
+    h3 {
+        color: #af503a;
+    }
+
+    ul {
+        list-style: none;
+        margin-left: 0;
+        padding: 0;
+    }
+
+    #clear {
+        visibility: hidden;
+    }
+</style>
+
+<body>
+    <div class="title">
+        <h2>卯师傅的军火库</h2>
+        <span class="note">使用说明</span>
+        <p></p>
+        <hr>
+    </div>
+    <div class="chara_attr">
+        <div class="selector">
+            <h3>——选择人物——</h3>
+            <span>人物</span>
+            <select name="" id="selectChara">
+                <option value=0 selected='selected'>71香菱</option>
+            </select>
+            <span>选择武器</span>
+            <select name="" id="selectWeapon">
+                <option value=0 selected='selected'>精1千岩长枪</option>
+                <option value=1>精5千岩长枪</option>
+                <option value=2>精1决斗之枪</option>
+                <option value=3>精5决斗之枪</option>
+                <option value=4>西风长枪</option>
+                <option value=5>精5渔获</option>
+                <option value=6>精5匣里灭辰</option>
+                <option value=7>喜多院十文字</option>
+                <option value=8>天空之脊</option>
+                <option value=9>精1零层和璞鸢</option>
+                <option value=10>精1满层和璞鸢</option>
+            </select>
+            <p></p>
+            <div class="bnt">
+                <span> 班尼特提供攻击力 </span>
+                <input type="checkbox" id="isBnt">
+                <input type="text" name="" id="bntAtk" value="965">
+            </div>
+        </div>
+        <h3>——圣遗物主属性——</h3>
+        <div>
+            <span>时之沙：</span>
+            <select name="" id="selectSand">
+                <option value=0>攻击力</option>
+                <option value=1>充能</option>
+                <option value=2>精通</option>
+            </select>
+            <span>空之杯：</span>
+            <select name="" id="selectGoblet">
+                <option value=0>元素伤害</option>
+                <option value=1>攻击力</option>
+                <option value=2>精通</option>
+            </select>
+            <span>理之冠：</span>
+            <select name="" id="selectHat">
+                <option value=0>暴击率</option>
+                <option value=1>暴击伤害</option>
+                <option value=2>精通</option>
+            </select>
+        </div>
+        <h3>——最低充能效率——</h3>
+        <div>
+            <input type="text" name="minEr" id="minEr" value="180">%
+        </div>
+        <h3>——词条数——</h3>
+        <div>
+            <input type="text" name="entries" id="entries" value="18">
+        </div>
+        <p></p>
+    </div>
+    <hr>
+    <div class="result_list">
+        <div>
+            <button type="submit" id="getResult">计算结果</button>
+        </div>
+
+        <div class="results">
+            <ul id='results'></ul>
+            <button id="clear">清除列表</button>
+            <p></p>
+        </div>
+    </div>
+    <hr>
+    <div class="table">
+        <div>
+            <button id="addChart">建立柱状图</button>
+        </div>
+        <p class="chartNote">
+            *dmg代表期望伤害，r0为蒸发伤害，r1为超载伤害<br>
+            *点击图例可显示或隐藏该数据列<br>
+            *默认按照期望伤害(dmg)排序，点击任意数据列可改变排序依据
+        </p>
+        <div class="charts">
+            <div id="main" style="height: 500px;margin:0 auto;"></div>
+        </div>
+    </div>
+
+</body>
+<!-- <script type="module">
+    import NP from "./node_modules/number-precision";
+</script> -->
+<!-- <script src="./cal.js"></script> -->
+<script src="./newCal.js"></script>
+<script src="./chart.js"></script>
+
+</html>
