@@ -9,6 +9,8 @@ let option = {
     text: "卯师傅武器排名",
   },
 
+  grid: { left: 80 },
+
   aria: {
     show: true,
     decal: {
@@ -18,7 +20,10 @@ let option = {
 
   legend: {
     data: ["dmg", "r0", "r1"],
-    backgroundColor: "#ccc",
+    // orient: "vertical",
+    right: 10,
+    top: 30,
+    // backgroundColor: "#ccc",
     selected: {
       dmg: true,
       r0: true,
@@ -74,7 +79,7 @@ let option = {
 
   yAxis: {
     type: "category",
-    axisLabel: { rotate: -25 },
+    axisLabel: { rotate: 0 },
   },
 
   xAxis: {},
@@ -95,9 +100,10 @@ addChart.onclick = () => {
     option.dataset[0].source = results;
     initChart.setOption(option);
     // console.log(results);
+    // console.log(document.body.clientWidth);
     initChart.resize({
-      width: 900,
-      height: 80 * results.length > 400 ? 80 * results.length : 500,
+      width: "auto",
+      height: results.length > 2 ? 110 * results.length : 240,
     });
   }
 };

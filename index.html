@@ -4,9 +4,10 @@
 <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <!-- <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"> -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="google" value="notranslate">
-    <title>Document</title>
+    <title>卯师傅的军火库</title>
 </head>
 <script src="./lib/echarts.js"></script>
 <style>
@@ -44,6 +45,28 @@
 
     #clear {
         visibility: hidden;
+    }
+
+    .charts {
+        width: 50%;
+        margin: 0 auto;
+    }
+
+    @media screen and (max-width: 1500px) {
+        body {
+            background-color: lightblue;
+        }
+
+        .charts {
+            width: 80%;
+        }
+    }
+
+    @media only screen and (max-width: 1024px) {
+        .charts {
+            width: 100%;
+        }
+
     }
 </style>
 
@@ -84,19 +107,19 @@
         </div>
         <h3>——圣遗物主属性——</h3>
         <div>
-            <span>时之沙：</span>
+            <span>沙：</span>
             <select name="" id="selectSand">
                 <option value=0>攻击力</option>
                 <option value=1>充能</option>
                 <option value=2>精通</option>
             </select>
-            <span>空之杯：</span>
+            <span>杯：</span>
             <select name="" id="selectGoblet">
                 <option value=0>元素伤害</option>
                 <option value=1>攻击力</option>
                 <option value=2>精通</option>
             </select>
-            <span>理之冠：</span>
+            <span>冠：</span>
             <select name="" id="selectHat">
                 <option value=0>暴击率</option>
                 <option value=1>暴击伤害</option>
@@ -136,7 +159,7 @@
             *默认按照期望伤害(dmg)排序，点击任意数据列可改变排序依据
         </p>
         <div class="charts">
-            <div id="main" style="height: 500px;margin:0 auto;"></div>
+            <div id="main"></div>
         </div>
     </div>
 
