@@ -166,7 +166,7 @@ class Chara {
       costE = 0;
     }
     let remainE = entries - costE;
-    // console.log(costE, remainE);
+    console.log("er 花费" + costE + "词条，剩余" + remainE);
     if (remainE > 0) {
       //优先保证充能达标
       this.er = (this.er * 10 + costE * erpe * 10) / 10;
@@ -185,36 +185,40 @@ class Chara {
       //1.配平双爆
       while (remainE > 0) {
         let c = this.cd * 10 - this.cr * 20;
-        if (Math.abs(c) > cdpe * 10) {
+        if (Math.abs(c) >= (cdpe * 10) / 2) {
           if (c > 0) {
             this.cr = (this.cr * 10 + crpe * 10) / 10;
+            console.log("cr 分配1词条，cr：" + this.cr + "剩余" + remainE);
           } else {
             this.cd = (this.cd * 10 + cdpe * 10) / 10;
+            console.log("cd 分配1词条，cd：" + this.cd + "剩余" + remainE);
           }
           remainE--;
         } else break;
       }
+      console.log(this.cr, this.cd);
       //2.分配基础精通
-      while (this.em < 3 * empe + 96) {
+      while (remainE > 0 && this.em < 3 * empe + 96) {
         this.em = (this.em * 10 + empe * 10) / 10;
-        // console.log("精通 分配1词条，精通：" + this.em);
+        console.log("精通 分配1词条，精通：" + this.em + "剩余" + remainE);
         remainE--;
       }
       //3.在精通达到阈值(306)之前，按照4双暴+1精通的顺序分配剩余词条
       let f = 0;
       while (remainE > 0) {
-        this.cd = (this.cd * 10 + cdpe * 10) / 10;
-        // console.log("爆伤 分配1词条，爆伤：" + this.cd);
-        remainE--;
-        if (remainE > 0) {
+        if (this.cd * 10 < this.cr * 20) {
+          this.cd = (this.cd * 10 + cdpe * 10) / 10;
+          console.log("爆伤 分配1词条，爆伤：" + this.cd + "剩余" + remainE);
+          remainE--;
+        } else {
           this.cr = (this.cr * 10 + crpe * 10) / 10;
-          // console.log("暴击 分配1词条，暴击：" + this.cr);
+          console.log("暴击 分配1词条，暴击：" + this.cr + "剩余" + remainE);
           remainE--;
         }
         f++;
-        if (remainE > 0 && this.em < 306 && f % 2 == 0) {
+        if (remainE > 0 && this.em < 306 && f % 4 == 0) {
           this.em = (this.em * 10 + empe * 10) / 10;
-          // console.log("精通 分配1词条，精通：" + this.em);
+          console.log("精通 分配1词条，精通：" + this.em + "剩余" + remainE);
           remainE--;
         }
       }
