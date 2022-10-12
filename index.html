@@ -79,26 +79,31 @@
             <h3>——选择人物——</h3>
             <span>人物</span>
             <select name="" id="selectChara">
-                <option value=0 selected='selected'>71香菱</option>
+                <option value=0 selected='selected'>90香菱</option>
             </select>
             <span>选择武器</span>
             <select name="" id="selectWeapon">
-                <option value=0 selected='selected'>精1千岩长枪</option>
+                <option value=0>精1千岩长枪</option>
                 <option value=1>精5千岩长枪</option>
                 <option value=2>精1决斗之枪</option>
                 <option value=3>精5决斗之枪</option>
                 <option value=4>西风长枪</option>
-                <option value=5>精5渔获</option>
+                <option value=5 selected='selected'>精5渔获</option>
                 <option value=6>精5匣里灭辰</option>
                 <option value=7>喜多院十文字</option>
                 <option value=8>天空之脊</option>
-                <option value=9>精1零层和璞鸢</option>
+                <option value=9>精1二层和璞鸢</option>
                 <option value=10>精1满层和璞鸢</option>
+                <option value=11>精1满血护摩之杖</option>
+                <option value=12>精1半血护摩之杖</option>
+                <option value=13>精1一层赤沙之杖</option>
+                <option value=14>精1三层赤沙之杖</option>
+                <option value=15>精1薙刀</option>
             </select>
             <p></p>
             <div class="bnt">
                 <span> 班尼特提供攻击力 </span>
-                <input type="checkbox" id="isBnt">
+                <input type="checkbox" id="isBnt" checked>
                 <input type="text" name="" id="bntAtk" value="965">
             </div>
         </div>
@@ -107,29 +112,37 @@
             <span>沙：</span>
             <select name="" id="selectSand">
                 <option value=0>攻击力</option>
-                <option value=1>充能</option>
+                <option value=1 selected='selected'>充能</option>
                 <option value=2>精通</option>
+                <option value=3>生命</option>
             </select>
             <span>杯：</span>
             <select name="" id="selectGoblet">
                 <option value=0>元素伤害</option>
                 <option value=1>攻击力</option>
                 <option value=2>精通</option>
+                <option value=3>生命</option>
             </select>
             <span>冠：</span>
             <select name="" id="selectHat">
                 <option value=0>暴击率</option>
                 <option value=1>暴击伤害</option>
                 <option value=2>精通</option>
+                <option value=3>生命</option>
             </select>
         </div>
         <h3>——最低充能效率——</h3>
         <div>
-            <input type="text" name="minEr" id="minEr" value="180">%
+            <input type="text" name="minEr" id="minEr" value="200">%
         </div>
         <h3>——词条数——</h3>
         <div>
-            <input type="text" name="entries" id="entries" value="18">
+            <span style="font-size:10px">总词条数(攻精充双暴):</span>
+            <br>
+            <input type="text" name="entries" id="entries" value="24">
+            <br>
+            <span style="font-size:10px">生命词条数(护摩之杖专用):</span><br>
+            <input type="text" name="hpE" id="hpE" value="5">
         </div>
         <p></p>
     </div>
