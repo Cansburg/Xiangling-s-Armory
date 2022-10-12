@@ -34,6 +34,19 @@ let goblet = document.getElementById("selectGoblet");
 let hat = document.getElementById("selectHat");
 let bnt = document.getElementById("isBnt");
 let clear = document.getElementById("clear");
+let tutorial = document.getElementById("tutorial");
+// 使用教程
+tutorial.onclick = () => {
+  alert(
+    `使用说明：
+    1.选择武器(默认90级)
+    2.填写班尼特提供的攻击力(一般而言保持默认即可)
+    3.选择圣遗物主属性
+    4.设定好最低充能(建议不要低于180%)
+    `
+  );
+};
+
 // 是否带班尼特玩
 bnt.onclick = () => {
   if (bnt.checked) {
