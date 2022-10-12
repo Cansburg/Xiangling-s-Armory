@@ -159,7 +159,7 @@ class Chara {
     } else if (weapon.dynamicTo == "atkh") {
       this.atkh += dynamicAttr(this, weapon.dynamicBy, weapon.k);
     }
-    console.log(this);
+    // console.log(this);
     //开始计算副词条
     let costE = Math.ceil((minEr.value - this.er) / erpe);
     if (costE < 0) {
