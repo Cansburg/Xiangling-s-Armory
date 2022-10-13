@@ -161,6 +161,10 @@ class Chara {
     }
     // console.log(this);
     //开始计算副词条
+    let erN = 0,
+      emN = 0,
+      crN = 0,
+      cdN = 0;
     let costE = Math.ceil((minEr.value - this.er) / erpe);
     if (costE < 0) {
       costE = 0;
@@ -170,6 +174,7 @@ class Chara {
     if (remainE > 0) {
       //优先保证充能达标
       this.er = (this.er * 10 + costE * erpe * 10) / 10;
+      erN = costE;
       // console.log("元素充能 分配" + costE + "词条，剩余词条：" + remainE);
       /* 
       if (!bnt.checked && this.atkh < 80) {
@@ -188,19 +193,22 @@ class Chara {
         if (Math.abs(c) >= (cdpe * 10) / 2) {
           if (c > 0) {
             this.cr = (this.cr * 10 + crpe * 10) / 10;
+            crN++;
             // console.log("cr 分配1词条，cr：" + this.cr + "剩余" + remainE);
           } else {
             this.cd = (this.cd * 10 + cdpe * 10) / 10;
+            cdN++;
             // console.log("cd 分配1词条，cd：" + this.cd + "剩余" + remainE);
           }
           remainE--;
         } else break;
       }
-      console.log(this.cr, this.cd);
+      // console.log(this.cr, this.cd);
       //2.分配基础精通
       while (remainE > 0 && this.em < 3 * empe + 96) {
         this.em = (this.em * 10 + empe * 10) / 10;
         // console.log("精通 分配1词条，精通：" + this.em + "剩余" + remainE);
+        emN++;
         remainE--;
       }
       //3.在精通达到阈值(306)之前，按照4双暴+1精通的顺序分配剩余词条
@@ -209,16 +217,19 @@ class Chara {
         if (this.cd * 10 < this.cr * 20) {
           this.cd = (this.cd * 10 + cdpe * 10) / 10;
           // console.log("爆伤 分配1词条，爆伤：" + this.cd + "剩余" + remainE);
+          cdN++;
           remainE--;
         } else {
           this.cr = (this.cr * 10 + crpe * 10) / 10;
           // console.log("暴击 分配1词条，暴击：" + this.cr + "剩余" + remainE);
+          crN++;
           remainE--;
         }
         f++;
         if (remainE > 0 && this.em < 306 && f % 4 == 0) {
           this.em = (this.em * 10 + empe * 10) / 10;
           // console.log("精通 分配1词条，精通：" + this.em + "剩余" + remainE);
+          emN++;
           remainE--;
         }
       }
@@ -229,6 +240,10 @@ class Chara {
     //计算绝缘4效果
     this.ed = (this.ed * 100 + (this.er * 100) / 4) / 100;
     // console.log(this);
+    console.log(
+      `${this.weaponName} ${this.equipment}: 
+      充能${erN}条 暴击${crN}条 暴伤${cdN}条 精通${emN}条`
+    );
   }
 }
 
